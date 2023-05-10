@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
     public float jump;
+    public float moveVelocity;
     private Rigidbody2D rb;
     private bool isGrounded;
     public Animator anim;
@@ -26,6 +27,16 @@ public class CharacterMovement : MonoBehaviour
             rb.AddForce(Vector2.up * jump);
         }
 
+        if (Input.GetKey(KeyCode.D))
+        {
+            rb.AddForce(Vector2.right * moveVelocity);
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            rb.AddForce(Vector2.left * moveVelocity);
+        }
+
         if (Input.GetKeyDown(KeyCode.S))
         {
             anim.SetTrigger("Slide");
@@ -35,6 +46,8 @@ public class CharacterMovement : MonoBehaviour
         {
             anim.SetTrigger("Idle");
         }
+
+
     }
 
     private void OnCollisionEnter2D(Collision2D other)
