@@ -7,7 +7,7 @@ public class CharacterMovement : MonoBehaviour
     public float jump;
     public float moveVelocity;
     private Rigidbody2D rb;
-    private bool isGrounded;
+    public bool isGrounded;
     public Animator anim;
 
     void Awake()
@@ -39,12 +39,12 @@ public class CharacterMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            anim.SetTrigger("Slide");
+            /*anim.SetTrigger("Slide");*/
         }
 
         if (Input.GetKeyUp(KeyCode.S))
         {
-            anim.SetTrigger("Idle");
+            /*anim.SetTrigger("Idle");*/
         }
 
 
