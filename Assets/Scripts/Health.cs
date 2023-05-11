@@ -31,7 +31,6 @@ public class Health : MonoBehaviour
             }
             if (currentHealth <= 0)
             {
-
                 Die();
             }
         }
@@ -39,6 +38,7 @@ public class Health : MonoBehaviour
     void Die()
     {
         Debug.Log("Player has died!");
+        gameObject.GetComponent<ScoreSaver>().saveEnd();
         FindObjectOfType<SceneLoader>().LoadScene("pepijn");
     }
 
