@@ -11,14 +11,16 @@ public class Obstacles : MonoBehaviour
 
     void Start()
     {
+        //voeg een transformatie van de Y als een constante beweging.
         initialY = transform.position.y;
+        
     }
 
     void Update()
     {
+        //berekent de snelheid met motions in als floats.
         float yOffset = Mathf.Sin(Time.time * moveSpeed) * Motions;
         transform.position = new Vector3(transform.position.x, initialY + yOffset, transform.position.z);
-
     }
 }
     
