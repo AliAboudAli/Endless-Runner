@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public int maxHealth = 5;
-    public int currentHealth;
+    public float maxHealth = 5;
+    public float currentHealth;
     public float healthRegenRate = 1f;
+    [SerializeField] private float healthRegenAmount;
+    [SerializeField] private float invincibilityTime;
+    float timeSinceLastHeal = 0;
+    float invincible;
+    bool takesDamage = true;
 
 
     void Start()
@@ -14,37 +19,60 @@ public class Health : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(int damageAmount, GameObject attacker)
+    public void TakeDamage(float damageAmount, GameObject attacker)
     {
-        if (attacker.CompareTag("Enemy"))
+        if (takesDamage)
         {
-            currentHealth -= damageAmount;
-        }
-        if (currentHealth <= 0)
-        {
-            Die();
+            if (attacker.CompareTag("Enemy"))
+            {
+                currentHealth -= damageAmount;
+                timeSinceLastHeal = 0;
+                invincible = 0;
+            }
+            if (currentHealth <= 0)
+            {
+
+                Die();
+            }
         }
     }
     void Die()
     {
         Debug.Log("Player has died!");
-        // Voor de gameover scene
+        FindObjectOfType<SceneLoader>().LoadScene("pepijn");
     }
 
     void RegenerateHealth()
     {
-        if (currentHealth >= maxHealth)
+        timeSinceLastHeal += Time.deltaTime;
+        if (timeSinceLastHeal > healthRegenRate)
         {
-            return;
+            currentHealth += healthRegenAmount;
+            timeSinceLastHeal= 0;
         }
-        currentHealth += Mathf.CeilToInt(healthRegenRate * Time.deltaTime);
+        if (currentHealth > maxHealth)
+        {
+            currentHealth= maxHealth;
+        }
+    }
 
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+    void InvincibilityTime()
+    {
+        invincible += Time.deltaTime;
+        if (invincible > 0 && invincible < invincibilityTime)
+        {
+            takesDamage = false;
+        }
+        else
+        {
+            takesDamage = true;
+        }
     }
 
     void Update()
     {
         RegenerateHealth();
+        InvincibilityTime();
     }
 }
 
