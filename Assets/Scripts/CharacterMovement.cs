@@ -27,12 +27,12 @@ public class CharacterMovement : MonoBehaviour
             rb.AddForce(Vector2.up * jump);
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D)&& isGrounded)
         {
             rb.AddForce(Vector2.right * moveVelocity);
         }
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A)&& isGrounded)
         {
             rb.AddForce(Vector2.left * moveVelocity);
         }
