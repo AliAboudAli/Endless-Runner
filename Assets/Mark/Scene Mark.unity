@@ -394,6 +394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jump: 300
+  moveVelocity: 20
   anim: {fileID: 125929803}
 --- !u!4 &125929808
 Transform:
