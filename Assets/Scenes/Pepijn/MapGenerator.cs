@@ -30,7 +30,7 @@ public class MapGenerator : MonoBehaviour
     }
     public void Update()
     {
-        camera.transform.position += transform.right * Time.deltaTime * 10;
+        /*camera.transform.position += transform.right * Time.deltaTime * 10;*/
         CheckAndSpawnModule();
     }
 
