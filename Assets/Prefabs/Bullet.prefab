@@ -168,8 +168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae7812811ba14f94ca57381673712499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToLive: 3
+  timeToLive: 2
   explosion: {fileID: 2195992092074901659, guid: 3ff2731ed5033a942b8a561c81bd208f, type: 3}
   target: {fileID: 0}
-  speed: 4
-  damage: 0.5
+  speed: 1
+  damage: 0.2

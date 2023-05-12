@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DiffucltyController : MonoBehaviour
+public class DifficultyController : MonoBehaviour
 {
     public MapGenerator mapGen;
     public float speedIncreasePerSecond = 0.1f;
@@ -14,7 +14,6 @@ public class DiffucltyController : MonoBehaviour
     {
         mapGen = GetComponent<MapGenerator>();
     }
-
     private void Update()
     {
         timeElapsed += Time.deltaTime;

@@ -133,7 +133,7 @@ MonoBehaviour:
   player: {fileID: 0}
   missileSpeed: 20
   missileInterval: 10
-  warningDuration: 1
+  warningDuration: 3
   MissileIncomingSetting: {fileID: 0}
   firepoint: {fileID: 6148963370149217435}
-  amountOfMissles: 3
+  amountOfMissles: 1
