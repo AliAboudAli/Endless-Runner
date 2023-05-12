@@ -19,11 +19,9 @@ public class DiffucltyController : MonoBehaviour
     {
         timeElapsed += Time.deltaTime;
 
-        // Increase the speed of the game
         float newSpeed = mapGen.camera.transform.position.x + (timeElapsed * speedIncreasePerSecond);
         mapGen.camera.transform.position = new Vector3(newSpeed, mapGen.camera.transform.position.y, mapGen.camera.transform.position.z);
 
-        // Increase the height of the modules
         float newHeight = mapGen.currentHeight + (timeElapsed * heightIncreasePerSecond);
         mapGen.currentHeight = Mathf.RoundToInt(newHeight);
     }

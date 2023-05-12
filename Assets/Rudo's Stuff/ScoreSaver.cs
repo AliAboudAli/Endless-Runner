@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class ScoreSaver : MonoBehaviour
 {
     public bool inGame = true;
@@ -12,8 +12,8 @@ public class ScoreSaver : MonoBehaviour
     public float gameTime = 0;
     bool alive = true;
     bool saved = false;
-    public Text[] scoreText;
-    public Text[] timeText;
+    public TMP_Text[] scoreText;
+    public TMP_Text[] timeText;
     // Start is called before the first frame update
     void Start()
     {
