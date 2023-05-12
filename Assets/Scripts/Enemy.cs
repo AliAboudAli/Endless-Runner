@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
     {
         // Zoek het Health-component op de speler
         Health playerHealth = collision.gameObject.GetComponent<Health>();
-        Camera.main.GetComponent<CameraBehaviour>().Shake = true;
+        /*Camera.main.GetComponent<CameraBehaviour>().Shake = true;*/
         //Destroy(gameObject);
 
         // Controleer of de speler een Health-component heeft
