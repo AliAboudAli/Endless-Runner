@@ -536,9 +536,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0730403e86e63e04681f171abe09d7ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inGame: 1
   playerStartingPosition: 0
   playerEndingPosition: 0
   gameTime: 0
+  scoreText: []
+  timeText: []
 --- !u!1 &626198132
 GameObject:
   m_ObjectHideFlags: 0
