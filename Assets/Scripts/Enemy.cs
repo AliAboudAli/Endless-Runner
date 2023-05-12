@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        rb.velocity = transform.right * speed;
+        
     }
 
     // Methode die wordt aangeroepen wanneer deze vijand de speler raakt

@@ -62,7 +62,7 @@ public class CharacterMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.D))
         {
-            if (rb.velocity.x > -15f)
+            if (rb.velocity.x < 20f)
             {
                 rb.AddForce(Vector2.right * moveVelocity);
                 flip();
@@ -72,7 +72,7 @@ public class CharacterMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            if (rb.velocity.x < 15f)
+            if (rb.velocity.x > -20f)
             {
                 rb.AddForce(Vector2.left * moveVelocity);
                 flip();

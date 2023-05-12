@@ -18,6 +18,11 @@ public class MissileLauncher : MonoBehaviour
     private float nextMissileTime = 0f;
     public int amountOfMissles;
 
+    private void Start()
+    {
+        player = GameObject.Find("Player");
+        MissileIncomingSetting = GameObject.Find("MissileText").GetComponent<TMP_Text>();
+    }
     //gedurende tijd neemt hij damage door een for loop
     void Update()
     {

@@ -5,7 +5,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class MissleScript : MonoBehaviour
 {
-    float timeToLive = 3;
+    public float timeToLive = 3;
     public GameObject explosion;
     public Transform target;
     public float speed;
@@ -22,6 +22,7 @@ public class MissleScript : MonoBehaviour
 
         // move sprite towards the target location
         transform.position = Vector2.MoveTowards(transform.position, target.position, step);
+        timeToLive -= Time.deltaTime;
         if (timeToLive < 0)
         {
             die();
