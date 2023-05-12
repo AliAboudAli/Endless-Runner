@@ -9,6 +9,7 @@ public class MissleScript : MonoBehaviour
     public GameObject explosion;
     public Transform target;
     public float speed;
+    public float damage;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +38,7 @@ public class MissleScript : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Health>() != null)
         {
-            collision.gameObject.GetComponent<Health>().TakeDamage(1, gameObject);
+            collision.gameObject.GetComponent<Health>().TakeDamage(damage, gameObject);
             die();
         }
     }

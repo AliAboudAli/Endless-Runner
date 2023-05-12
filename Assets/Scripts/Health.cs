@@ -40,7 +40,7 @@ public class Health : MonoBehaviour
     {
         Debug.Log("Player has died!");
         gameObject.GetComponent<ScoreSaver>().saveEnd();
-        FindObjectOfType<SceneLoader>().LoadScene("Highscore");
+        FindObjectOfType<SceneLoader>().LoadScene("MainMenu");
     }
 
     void RegenerateHealth()
