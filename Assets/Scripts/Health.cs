@@ -25,6 +25,7 @@ public class Health : MonoBehaviour
         {
             if (attacker.CompareTag("Enemy"))
             {
+                print("Oh no you've taken damage");
                 currentHealth -= damageAmount;
                 timeSinceLastHeal = 0;
                 invincible = 0;
@@ -39,7 +40,7 @@ public class Health : MonoBehaviour
     {
         Debug.Log("Player has died!");
         gameObject.GetComponent<ScoreSaver>().saveEnd();
-        FindObjectOfType<SceneLoader>().LoadScene("pepijn");
+        FindObjectOfType<SceneLoader>().LoadScene("Highscore");
     }
 
     void RegenerateHealth()
