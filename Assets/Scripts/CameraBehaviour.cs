@@ -18,7 +18,7 @@ public class CameraBehaviour : MonoBehaviour
     {
         if (player.GetComponent<Rigidbody2D>().velocity.x > 0)
         {
-            Vector3 pos = new Vector3(player.transform.position.x, 0, -10);
+            Vector3 pos = new Vector3(player.transform.position.x, 1, -10);
             camera.transform.position = pos;
         }
         if (Shake)

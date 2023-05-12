@@ -10,6 +10,7 @@ public class CharacterMovement : MonoBehaviour
     public bool isGrounded;
     public Animator anim;
     bool facingRight = true;
+    public Transform rayPoint;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -30,24 +31,54 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (rb.velocity.x > 20f)
+        {
+            rb.AddForce(Vector2.left * 1);
+        }
+
+            RaycastHit2D hit = Physics2D.Raycast(rayPoint.position, -Vector2.up, 0.1f);
+        if (hit.collider != null)
+        {
+            print(hit.collider.name);
+            if (hit.collider.tag == "Ground")
+            {
+                isGrounded= true;
+            }
+            else
+            {
+                isGrounded = false;
+            }
+        }
+        else
+        {
+            isGrounded = false;
+        }
+        Debug.DrawRay(transform.position, -transform.up , Color.blue , 10f);
         if (Input.GetKeyDown(KeyCode.W) && isGrounded)
         {
             rb.AddForce(Vector2.up * jump);
             anim.SetTrigger("jump");
         }
 
-        if (Input.GetKey(KeyCode.D)&& isGrounded)
+        if (Input.GetKey(KeyCode.D))
         {
-            rb.AddForce(Vector2.right * moveVelocity);
-            flip();
-            anim.SetTrigger("Run");
+            if (rb.velocity.x > -15f)
+            {
+                rb.AddForce(Vector2.right * moveVelocity);
+                flip();
+                anim.SetTrigger("Run");
+            }
         }
 
-        if (Input.GetKey(KeyCode.A)&& isGrounded)
+        if (Input.GetKey(KeyCode.A))
         {
-            rb.AddForce(Vector2.left * moveVelocity);
-            flip();
-            anim.SetTrigger("Run");
+            if (rb.velocity.x < 15f)
+            {
+                rb.AddForce(Vector2.left * moveVelocity);
+                flip();
+                anim.SetTrigger("Run");
+            }
+            
         }
 
         if (Input.GetKeyDown(KeyCode.S))
@@ -61,22 +92,5 @@ public class CharacterMovement : MonoBehaviour
         }
 
 
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = false;
-            
-        }
     }
 }
