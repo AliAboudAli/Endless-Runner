@@ -13,9 +13,10 @@ public class MissileLauncher : MonoBehaviour
     public float missileSpeed = 20f;
     public float missileInterval = 10f;
     public float warningDuration = 3f;
-    public Text MissileIncomingSetting;
-
+    public TMP_Text MissileIncomingSetting;
+    public Transform firepoint;
     private float nextMissileTime = 0f;
+    public int amountOfMissles;
 
     //gedurende tijd neemt hij damage door een for loop
     void Update()
@@ -35,11 +36,12 @@ public class MissileLauncher : MonoBehaviour
         MissileIncomingSetting.text = "";
 
         // Vuurt 3 missiles 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < amountOfMissles; i++)
         {
-            Vector3 missilePosition = new Vector3(Random.Range(player.transform.position.x + 20f, transform.position.x - 20f), Random.Range(-5f, 5f), 0f);
-            GameObject missile = Instantiate(missilePrefab, missilePosition, Quaternion.identity);
-            missile.GetComponent<Rigidbody2D>().velocity = (player.transform.position - missilePosition).normalized * missileSpeed;
+            GameObject missile = Instantiate(missilePrefab, firepoint.position, Quaternion.identity);
+            missile.GetComponent<Rigidbody2D>().velocity = (player.transform.position - transform.position).normalized * missileSpeed;
+            missile.GetComponent<MissleScript>().target = player.transform;
+            yield return new WaitForSeconds(0.2f);
         }
     }
 }
