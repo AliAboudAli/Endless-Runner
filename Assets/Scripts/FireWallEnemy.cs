@@ -39,8 +39,8 @@ public class FireWallEnemy : MonoBehaviour
             }
             else
             {
-                CharacterController characterController = playerTransform.GetComponent<CharacterController>();
-                CharacterController.speed = speed * slowFactor;
+                CharacterMovement CharacterMovement = playerTransform.GetComponent<CharacterMovement>();
+                CharacterMovement.moveVelocity = speed * slowFactor;
             }
         }
 
@@ -52,7 +52,7 @@ public class FireWallEnemy : MonoBehaviour
 
     private void OnDestroy()
     {
-        CharacterController characterController = playerTransform.GetComponent<CharacterController>();
-        CharacterController.speed = speed;
+        CharacterMovement characterConCharacterMovementtroller = playerTransform.GetComponent<CharacterMovement>();
+        //CharacterMovement.moveVelocity = speed;
     }
 }
