@@ -25,6 +25,7 @@ public class Health : MonoBehaviour
         {
             if (attacker.CompareTag("Enemy"))
             {
+                print("Oh no you've taken damage");
                 currentHealth -= damageAmount;
                 timeSinceLastHeal = 0;
                 invincible = 0;
